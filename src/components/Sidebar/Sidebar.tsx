@@ -1,11 +1,7 @@
 import React from "react";
 import { Layout, Menu } from "antd";
 import {
-  DashboardOutlined,
   ReadOutlined,
-  ClockCircleOutlined,
-  TeamOutlined,
-  PieChartOutlined
 } from "@ant-design/icons";
 import { Link, RouteComponentProps, withRouter } from "react-router-dom";
 import { AuthRoutes } from "../Routes";
@@ -14,9 +10,7 @@ const { Sider } = Layout;
 
 const SidebarItems = [
   // { name: "Dashboard", icon: DashboardOutlined, to: AuthRoutes.dashboard },
-  { name: "Cursos", icon: ReadOutlined, to: AuthRoutes.courses },
-  { name: "Turmas", icon: ClockCircleOutlined, to: AuthRoutes.class },
-  { name: "Funcionários", icon: TeamOutlined, to: AuthRoutes.employees },
+  { name: "Lista", icon: ReadOutlined, to: AuthRoutes.list },
   // { name: "Relatórios", icon: PieChartOutlined, to: AuthRoutes.reports }
 ];
 

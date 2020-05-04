@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-// @ts-ignore
-import { Authentication } from "@compliance-total/react-lib";
+
 import { UserOutlined, DownOutlined, LogoutOutlined } from "@ant-design/icons";
 import { Dropdown, Menu } from "antd";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 
 class Header extends Component<RouteComponentProps> {
   onClickLogout = () => {
-    Authentication.logout();
     this.props.history.push("/login");
   };
 
@@ -30,14 +28,9 @@ class Header extends Component<RouteComponentProps> {
       <div className="header-container">
         <div className="flex">
           <div className="header-logo-container">
-            <img
-              className="header-logo"
-              src="./assets/img/logo-compliance-total.png"
-              alt="Compliance Total"
-            />
           </div>
           <div className="header-separator" />
-          <h1 className="phase-title">I-Plus</h1>
+          <h1 className="phase-title">Southsystem WEB</h1>
         </div>
         <div className="header-user-dropdown-container">
           <Dropdown
@@ -51,10 +44,8 @@ class Header extends Component<RouteComponentProps> {
               </div>
               <div className="header-user-details">
                 <span style={{ fontWeight: 500 }}>
-                  {Authentication.getUserName()}
                 </span>
                 <div style={{ fontWeight: 300 }}>
-                  {Authentication.getCompanyName()}
                 </div>
               </div>
               <DownOutlined />

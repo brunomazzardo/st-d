@@ -6,16 +6,9 @@ import Login from "./Login/Login";
 import Header from "./Header";
 import Sidebar from "./Sidebar/Sidebar";
 import {Layout} from "antd";
-import Courses from "./Courses/Courses";
-import EditCourse from "./Courses/EditCourse";
-import NestRoutes from "./NestRoutes";
-import Employees from "./Employees/Employees";
-import Classes from "./Class/Classes";
-import ClassCentral from "./Class/ClassCentral/ClassCentral";
 import {ConfigProvider} from "antd";
 import ptBR from "antd/es/locale/pt_BR";
-import Socket from "./lib/SocketContext";
-import PasswordRecovery from "./Login/PasswordRecovery";
+import DragonList from "./List/List";
 
 
 const antConfig = {
@@ -30,44 +23,17 @@ class App extends React.Component {
                 <BrowserRouter>
                     <Switch>
                         <Route path={NonAuthRoutes.login} component={Login}/>
-                        <Route path={NonAuthRoutes.passwordRecovery} component={PasswordRecovery}/>
                         <ProtectedRoutes>
-                            <Socket>
                                 <Header/>
                                 <Layout className="sidebar-container">
                                     <Sidebar/>
                                     <Layout className="content-layout">
                                         <Switch>
-                                            <NestRoutes path={AuthRoutes.courses}>
-                                                <Route component={Courses} path={"/cursos/"} exact/>
-                                                <Route
-                                                    component={EditCourse}
-                                                    path={"/cursos/adicionar"}
-                                                    exact
-                                                />
-                                            </NestRoutes>
-                                            <NestRoutes path={AuthRoutes.class}>
-                                                <Route
-                                                    component={Classes}
-                                                    path={AuthRoutes.class}
-                                                    exact
-                                                />
-                                                <Route
-                                                    component={ClassCentral}
-                                                    path={AuthRoutes.classCentral}
-                                                    exact
-                                                />
-                                            </NestRoutes>
-                                            <Route
-                                                component={Employees}
-                                                path={AuthRoutes.employees}
-                                                exact
-                                            />
-                                            <Redirect to={AuthRoutes.courses}/>
+                                                <Route component={DragonList} path={AuthRoutes.list} exact/>
+                                            <Redirect to={AuthRoutes.list}/>
                                         </Switch>
                                     </Layout>
                                 </Layout>
-                            </Socket>
                         </ProtectedRoutes>
                     </Switch>
                 </BrowserRouter>

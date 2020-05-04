@@ -1,15 +1,11 @@
-// @ts-ignore
-import { BackendAsyncRequest } from '@compliance-total/react-lib'
 
-
+import axios from "axios"
 import Config from '../config'
 
-const { user, touch } = Config.api;
+const { dragon } = Config.api;
 
-const UserApi = new BackendAsyncRequest(user);
-const TouchApi = new BackendAsyncRequest(touch);
+const DragonAPI = axios.create({baseURL:dragon});
 
 export {
-    UserApi,
-    TouchApi
+   DragonAPI
 }
