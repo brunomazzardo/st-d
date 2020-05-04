@@ -1,0 +1,13 @@
+.ant-layout-sider-trigger{
+    background: #fff !important;
+    color: $background-dark !important;
+    border-top: $border-width solid $border-color;
+}
+
+
+.sidebar-container {
+  height: calc(100vh - #{$header-height});
+}
+
+.sidebar-menu-container {
+}

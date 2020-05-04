@@ -1,0 +1,36 @@
+#root {
+  height: 100vh;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid $border-color;
+}
+
+.site-layout-background {
+  background: #fff;
+}
+
+.content-layout {
+  background: transparent !important;
+  padding: 15px;
+}
+.ant-layout-sider-children > ul > li:nth-child(1) {
+  margin-top: 0px;
+}
+
+.content-margin {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+
+.crumb-item{
+  font-size: 20px;
+}
+
+.sortableHelper {
+  z-index: 1000
+}

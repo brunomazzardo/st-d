@@ -1,0 +1,35 @@
+@import "_base/_vars";
+@import '_base/_helpers';
+@import "_base/_reset";
+
+@import "_pages/login";
+@import "_pages/header";
+@import "_pages/sidebar";
+@import "_pages/course";
+@import "_pages/class";
+
+/*
+=================
+	Fonts
+=================
+*/
+
+@font-face {
+  font-family: "Effra Medium";
+  src: url("../fonts/Effra/Effra_Std_Md_0.ttf");
+}
+
+@font-face {
+  font-family: "Effra Light";
+  src: url("../fonts/Effra/Effra_Std_Lt.ttf");
+}
+
+@font-face {
+  font-family: "Effra Heavy";
+  src: url("../fonts/Effra/Effra_Std_He.ttf");
+}
+
+@font-face {
+  font-family: "Effra Semi-Light";
+  src: url("../fonts/Effra/Effra_Std_Rg_0.ttf");
+}

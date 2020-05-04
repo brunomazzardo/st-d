@@ -1,0 +1,30 @@
+.login-container {
+  background-image: url('../img/background.jpg');
+  background: {
+    position: center;
+		repeat: no-repeat;
+		size: cover;
+  };
+  height: 100vh;
+}
+
+.screen-container {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container {
+  width: 460px;
+  background: #fff;
+  padding: 30px 15px;
+  border-top: 4px solid $secondary-color;
+  box-shadow: $box-shadow-default;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 30px;
+}

@@ -1,0 +1,45 @@
+// Visual identity CMS
+$primary-color: rgb(24, 144, 255);
+$secondary-color: #3b66f3;
+$ant-color: #1890ff;
+$gray-color: #f9f9ff;
+$success-color: #389e71;
+
+// Background
+$background: #fff;
+$background-gray: #f5f5f5;
+$background-dark: #212326;
+$border-color: #eee;
+$border-width: 2px;
+
+$primary-text-color: #777;
+$gray-background: rgba(0,0,0,.04);
+// Text
+$font-size: 14px;
+$text-color: #777;
+$text-color-dark: #333;
+$primary-font: 'Open Sans';
+$secondary-font: 'Montserrat';
+
+// Misc
+$transition: all 0.2s ease-in-out;
+$box-shadow-default: 0 2px 4px rgba(0,0,0,0.2);
+$border-radius-default: 4px;
+$header-height: 70px;
+$header-offset: 80px;
+$footer-height: 81px;
+$default-primary-color: #2196f3;
+$sidebar-width: 195px;
+
+// Grid (max-width: ...)
+$xs: 767px;
+$sm: 991px;
+$md: 1191px;
+
+
+$status-green: #6eb186;
+$status-red: #cc7461;
+$status-yellow: #ebc558;
+$status-blue: #2e6da4;
+$status-black: #1f1f1f;
+$status-off: #ECE6E9;

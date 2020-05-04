@@ -1,0 +1,70 @@
+.header-logo {
+  padding: 15px;
+  width: 170px;
+}
+
+.header-logo-container {
+  width: $sidebar-width;
+}
+
+.header-container {
+  background: #fff;
+  border: 0;
+  display: flex;
+  justify-content: space-between;
+  height: $header-height;
+  flex: 1;
+}
+
+.header-info-container {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+
+.phase-title {
+  margin-left: 25px;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: 28px;
+  font-family: "Effra Medium";
+  font-weight: 500;
+  color:$text-color-dark;
+  margin-right: 15px;
+  margin-bottom: 0px;
+}
+
+
+.header-separator {
+  border-left: solid #f5f5f5 2px;
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+
+.header-user-details {
+  color: $text-color-dark;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.header-user-icon-container {
+  border-radius: 50%;
+  border: 1px solid $primary-text-color;
+  display: flex;
+  min-width: 28px;
+  min-height: 28px;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-user-dropdown-container{
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+
