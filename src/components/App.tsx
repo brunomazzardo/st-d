@@ -26,7 +26,6 @@ class App extends React.Component {
                         <ProtectedRoutes>
                                 <Header/>
                                 <Layout className="sidebar-container">
-                                    <Sidebar/>
                                     <Layout className="content-layout">
                                         <Switch>
                                                 <Route component={DragonList} path={AuthRoutes.list} exact/>
