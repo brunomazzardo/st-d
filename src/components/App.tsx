@@ -4,11 +4,10 @@ import {AuthRoutes, NonAuthRoutes} from "./Routes";
 import ProtectedRoutes from "./ProtectedRoutes";
 import Login from "./Login/Login";
 import Header from "./Header";
-import Sidebar from "./Sidebar/Sidebar";
 import {Layout} from "antd";
 import {ConfigProvider} from "antd";
 import ptBR from "antd/es/locale/pt_BR";
-import DragonList from "./List/List";
+import DragonList from "./Dragon/List";
 
 
 const antConfig = {
