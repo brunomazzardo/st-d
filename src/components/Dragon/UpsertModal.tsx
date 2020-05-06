@@ -48,8 +48,10 @@ const DragonUpsert = (props: Props) => {
     React.useEffect(() => {
         if (props.data)
             fetchDetailedDragon(props.data)
-        else
+        else {
             form.resetFields()
+            setHistories([])
+        }
     }, [props.data]);
 
     const addHistory = () => {
