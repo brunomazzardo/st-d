@@ -28,9 +28,14 @@ class Header extends Component<RouteComponentProps> {
       <div className="header-container">
         <div className="flex">
           <div className="header-logo-container">
+            <img
+                className="header-logo"
+                src="./assets/img/logo.png"
+                alt="Southsystem"
+            />
           </div>
           <div className="header-separator" />
-          <h1 className="phase-title">Southsystem WEB</h1>
+          <h1 className="phase-title">Dragon WEB</h1>
         </div>
         <div className="header-user-dropdown-container">
           <Dropdown
