@@ -15,46 +15,59 @@ const DragonList = () => {
     const [dragon, setDragon] = React.useState<Dragon>()
     const [open, setOpen] = React.useState(false);
 
-    const editDragon = (dragon?: Dragon) => {
-        setDragon(dragon)
-        setOpen(true)
-    }
-
     const close = () => {
         setDragon(undefined)
         setOpen(false)
     }
 
+    const editDragon = (dragon?: Dragon) => {
+        setDragon(dragon)
+        setOpen(true)
+    }
+    const deleteDragon = async (dragon: Dragon) => {
+        await DragonAPI.delete(`/${dragon.id}`)
+        fetch()
+    }
+    const fetchDragons = async () => {
+        const {data} = await DragonAPI.get("/")
+        return data
+    }
+    const upsertDragon = async (d: Dragon) => {
+        if (dragon)
+            await DragonAPI.put(`/${dragon.id}`, d)
+        else
+            await DragonAPI.post("/", d)
+        close()
+        fetch()
+    }
+
     const tableActions = (text: string, dragon: Dragon) => {
         return <>
-            <Popconfirm onConfirm={() => DragonAPI.delete(`/${dragon.id}`)}
+            <Popconfirm onConfirm={() => deleteDragon(dragon)}
                         title={`Deletar ${dragon.name} ?`}><DeleteOutlined/></Popconfirm>
             <IconButton icon={<EditOutlined/>} onClick={() => editDragon(dragon)}/>
         </>
     }
-
-    const fields: ColumnProps<Dragon>[] = [{key: "name", title: "Nome", dataIndex: "name"}, {
-        key: "type",
-        title: "Tipo",
-        dataIndex: "type"
-    },
+    const fields: ColumnProps<Dragon>[] = [
+        {
+            key: "name",
+            title: "Nome",
+            dataIndex: "name"
+        },
+        {
+            key: "type",
+            title: "Tipo",
+            dataIndex: "type"
+        },
         {
             key: "action",
             title: "Ações",
             render: tableActions
         }]
 
-    const fetchDragons = async () => {
-        const {data} = await DragonAPI.get("/")
-        return data
-    }
-    const [dragons, loading] = useFetchWithLoading<Dragon[]>(fetchDragons, [])
 
-    const upsertDragon = async (d: Dragon) => {
-        if(dragon)
-            await DragonAPI.put(`/${d.id}`, d)
-        else await DragonAPI.post("/", d)
-    }
+    const [dragons, loading, fetch] = useFetchWithLoading<Dragon[]>(fetchDragons, [])
+
 
     return (
         <div>
