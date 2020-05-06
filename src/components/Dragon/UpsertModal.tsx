@@ -3,6 +3,8 @@ import {Form, Input, List} from "antd";
 import Modal from "../lib/Modal";
 import {Dragon} from "../interfaces";
 import {DragonAPI} from "../../lib/API";
+import IconButton from "../lib/ButtonIcon";
+import {PlusOutlined, DeleteOutlined} from "@ant-design/icons"
 
 type Props = {
     data?: Dragon
@@ -20,13 +22,15 @@ const DragonUpsert = (props: Props) => {
 
     const [form] = Form.useForm();
     const [saveLoading, setSaveLoading] = React.useState<boolean>(false);
+    const [histories, setHistories] = React.useState<String[]>([]);
+    const [history, setHistory] = React.useState<String>("");
 
 
     const handleFormFinish = async () => {
         setSaveLoading(true);
         try {
             const values = await form.validateFields();
-            await props.saveDragon(values);
+            await props.saveDragon({...values, histories});
         } catch (e) {
             console.log(e)
         } finally {
@@ -36,6 +40,7 @@ const DragonUpsert = (props: Props) => {
 
     const fetchDetailedDragon = async (oldDragon: Dragon) => {
         const {data} = await DragonAPI.get(`/${oldDragon.id}`)
+        setHistories(data.histories)
         form.setFieldsValue(data)
     }
 
@@ -46,6 +51,19 @@ const DragonUpsert = (props: Props) => {
         else
             form.resetFields()
     }, [props.data]);
+
+    const addHistory = () => {
+        if(history)
+            setHistories(h => {
+                h.push(history)
+                return h
+            })
+        setHistory("")
+    }
+
+    const deleteHistory = (history: String) => {
+
+    }
 
     return (
         <Modal
@@ -67,18 +85,14 @@ const DragonUpsert = (props: Props) => {
                            label="Tipo" {...formItemLayout} name="type">
                     <Input placeholder="Tipo do dragão"/>
                 </Form.Item>
-                <Form.Item label={"Histórias"} {...formItemLayout} name="histories">
-                    <List
-                        size="small"
-                        footer={<Input placeholder="Nova história"
-                        />}
-                        bordered
-                        dataSource={form.getFieldValue("histories")}
-                        renderItem={(item: String) => <List.Item>{item}</List.Item>}
-                    />
-                </Form.Item>
-
             </Form>
+            <List
+                size="small"
+                footer={<Input onChange={(event) => setHistory(event.target.value)} placeholder="Nova história" suffix={<IconButton onClick={addHistory} icon={<PlusOutlined/>}/>}/>}
+                bordered
+                dataSource={histories}
+                renderItem={(item: String) => <List.Item className="flex space-between">{item}<IconButton onClick={addHistory} icon={<DeleteOutlined/>}/> </List.Item>}
+            />
         </Modal>
     );
 };
